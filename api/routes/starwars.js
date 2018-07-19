@@ -4,11 +4,10 @@ const uuid = require("uuid");
 
 const createNames = k => ({
   id: uuid.v4(),
-  name: k,
-  value: prop(k, starwarsObj)
+  name: k
 });
 
-const starwarsNames = map(createNames, keys(starwarsObj));
+const starwarsNames = map(createNames, starwarsObj.all);
 
 module.exports = app => {
   app.get("/starwars", (req, res) => {
